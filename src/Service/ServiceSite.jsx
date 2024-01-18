@@ -8,7 +8,7 @@ import { useLoaderData } from "react-router-dom";
 const ServiceSite = () => {
     const {services} = useContext(serviceContext);
     const serv = useLoaderData();
-    // console.log(serv);
+
   return (
     <div>
       <div className=" md:bg-slate-600 ">

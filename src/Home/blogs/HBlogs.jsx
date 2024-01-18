@@ -1,19 +1,14 @@
+import { useContext, useEffect, useState } from "react";
+import logo1 from "../../assets/ring.png"
+import HBlog from "./HBlog";
+import { serviceContext } from "../../Providers/ServiceProvider";
+import { Link } from "react-router-dom";
 
-import Navbar from "../Shared/Navbar";
-import logo1 from "../assets/ring.png"
-import Blog from "./BLog";
-import { useContext } from "react";
-import { serviceContext } from "../Providers/ServiceProvider";
-
-const Blogs = () => {
-    const {blogs} = useContext(serviceContext)
-
+const HBlogs = () => {
+  const {blogs} = useContext(serviceContext)
     return (
-        <div>
-            <div className=" md:bg-slate-600 ">
-              <Navbar></Navbar>
-            </div>
-            <div>
+        <div className="my-10">
+             <div>
             <div className="w-full  max-w-7xl mx-auto py-20  flex flex-col justify-center items-center">
                     <img className="w-24 h-24 my-5" src={logo1} alt="" />
                     <h1 className="text-5xl text-center font-bold w-3/4 my-5">Welcome to Our Wedding Blog</h1>
@@ -21,12 +16,13 @@ const Blogs = () => {
             </div>
             <div className="flex flex-col justify-center items-center">
                 {
-                    blogs.map(blog =><Blog key={blog.post_id} blog={blog}></Blog>)
+                    blogs.slice(0,3).map(blog =><HBlog key={blog.post_id} blog={blog}></HBlog>)
                 }
             </div>
+            <div className="flex"><Link className="mx-auto" to='/blog'><button className="btn btn-outline btn-success">See more</button></Link></div>
             </div>
         </div>
     );
 };
 
-export default Blogs;
+export default HBlogs;

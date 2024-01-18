@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoMdMenu } from "react-icons/io";
 import { FaWindowClose } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/ring.png"
+import { serviceContext } from "../Providers/ServiceProvider";
 
 const Navbar = () => {
+    const {user,LogOut} = useContext(serviceContext);
     const [open, setOpen]= useState(false);
-   
+    const [image,setImage] =useState([])
+   console.log(user)
     const Clicked =()=>{
         setOpen(!open);
     }
+    const pic =()=>{
+        if (user.photoURL == null || user.photoURL === undefined) {
+            setImage('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png');
+        } else {
+            setImage(user.photoURL);
+    } }
+    console.log(image)
     return (
         <div>
             <nav className={`md:flex  ${open===true?'h-56':'h-0'} bg-slate-900   md:bg-opacity-0 flex-col md:flex-row justify-between   md:h-16 text-bg-white    bg-opacity-100 items-center ${open === true?'h-40':''}`}>
@@ -29,7 +39,17 @@ const Navbar = () => {
                     <li className="list-none mx-6 text-lg  font-bold"><NavLink to='/blog' className={({ isActive, isPending }) =>isActive? "active text-pink-500 border-b-4 border-pink-400": isPending? "pending": ""}>Blogs</NavLink> </li>
                    <li className="list-none mx-6 text-lg  font-bold"><NavLink to='/contact' className={({ isActive, isPending }) =>isActive? "active text-pink-500 border-b-4 border-pink-400": isPending? "pending": ""}>Contact Us</NavLink> </li>
                    </div>
-                   <Link className=""><button className="btn btn-info mr-6 text-white">Log In</button></Link>
+                  
+                   {
+                    user?.email ?<div className="flex items-center">
+                      <img className="h-10 rounded-full" src={user.photoURL} alt={user.displayName} />
+                       <Link to='/login' className="ml-5"><button onClick={LogOut} className="btn mt-2 btn-info mr-6 text-white">Log out</button></Link>
+                     
+                    </div>
+                    :
+                    <Link to='/login' className=""><button className="btn btn-info mr-6 text-white">Log In</button></Link>
+                   }
+                   {/* <Link to='/login' className=""><button className="btn btn-info mr-6 text-white">Log In</button></Link> */}
            </div>
             </nav>
         </div>

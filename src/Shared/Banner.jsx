@@ -8,7 +8,7 @@ const Banner = () => {
     <div>
         <h1 className="text-4xl md:text-7xl my-5   text-center   text-pink-400 font-extrabold"><span className="text-slate-100">Wedding </span>Couple</h1>
         <p className="text-base md:text-lg my-5 text-justify text-white font-semibold backdrop-blur-3xl">A wedding is a beautiful celebration that marks the union of two individuals embarking on a journey of lifelong companionship. The couple, dressed in elegant attire, stands at the center of attention, surrounded by the warmth and joy of their loved ones. As they exchange vows and promises of love, the atmosphere is filled with anticipation, excitement, and the promise of a shared future.</p>
-        <Link className="flex my-5"><button className="btn btn-info text-lg font-semibold text-white mx-auto">Services</button></Link>
+        <Link to='/register' className="flex my-5"><button className="btn btn-info text-lg font-semibold text-white mx-auto">Register to Get Service</button></Link>
     </div>
                    </>
     return (

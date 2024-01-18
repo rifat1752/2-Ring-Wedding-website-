@@ -8,6 +8,9 @@ import ServiceSite from "../Service/ServiceSite";
 import ServiceDetails from "../ServiceDetails/ServiceDetails";
 import AboutSite from "../AboutSite/AboutSite";
 import Blogs from "../Blogs/Blogs";
+import Registration from "../Registration/Registration";
+import LogIn from "../Login/LogIn";
+
 
 const Router = createBrowserRouter([
     {
@@ -35,8 +38,15 @@ const Router = createBrowserRouter([
         },
         {
           path:"/blog",
-          loader: ()=> fetch("https://api.npoint.io/d1a6b8eb525f1a4df29a"),
           element:<Blogs></Blogs>
+        },
+        {
+          path:"/register",
+          element:<Registration></Registration>
+        },
+        {
+          path:'/login',
+          element:<LogIn></LogIn>
         }
       ]
     }

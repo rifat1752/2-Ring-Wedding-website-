@@ -1,27 +1,26 @@
 
 import { FaHeart } from "react-icons/fa";
-import { useContext, useEffect} from "react";
-import { serviceContext } from "../Providers/ServiceProvider";
+import { useContext, useEffect } from "react";
+import { serviceContext } from "../../Providers/ServiceProvider";
 
-const Blog = ({ blog }) => {
-  const { post_id, post_date, poster_image, post_by, post_title, post_description } = blog;
-  const {initialLikedStatus, likedStatus, toggleLikedStatus, DataUpdate } = useContext(serviceContext)
 
-  // Load liked status from localStorage on component mount
-  useEffect(() => {
-    initialLikedStatus(post_id);
-  }, [initialLikedStatus, post_id]);
-  
-
-  // Save liked status to localStorage whenever it changes
-  DataUpdate(likedStatus);
-
-  const likeButton = () => {
-    toggleLikedStatus(post_id);
-  };
-
-  return (
-    <div className=" lg:w-4/6 max-w-5xl bg-slate-50 mx-5 shadow-xl rounded border border-slate-300 flex flex-col md:flex-row  my-5">
+const HBlog = ({blog}) => {
+    const { post_id, post_date, poster_image, post_by, post_title, post_description } = blog;
+    const { initialLikedStatus, likedStatus, toggleLikedStatus, DataUpdate} = useContext(serviceContext);
+    useEffect(() => {
+        initialLikedStatus(post_id);
+      }, [initialLikedStatus, post_id]);
+      
+    
+      // Save liked status to localStorage whenever it changes
+      DataUpdate(likedStatus);
+    
+      const likeButton = () => {
+        toggleLikedStatus(post_id);
+      };
+    
+    return (
+        <div className=" lg:w-4/6 max-w-5xl bg-slate-50 mx-5 shadow-xl rounded border border-slate-300 flex flex-col md:flex-row  my-5">
       <div className="image w-full relative top-0 lg:w-1/3">
         <img className="w-full md:w-96 md:h-full" src={poster_image} alt="" />
         <p className="bg-red-500 absolute top-1/3 text-slate-200 right-0 w-20 h-16 text-lg font-extrabold text-center">{post_date}</p>
@@ -35,7 +34,7 @@ const Blog = ({ blog }) => {
           </button>
       </div>
     </div>
-  );
+    );
 };
 
-export default Blog;
+export default HBlog;
