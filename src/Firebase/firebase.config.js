@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCUeK8YwNauZZpAreHMry3Pd5wBpOYB68w",
-  authDomain: "ring-wedding-management.firebaseapp.com",
-  projectId: "ring-wedding-management",
-  storageBucket: "ring-wedding-management.appspot.com",
-  messagingSenderId: "456889785566",
-  appId: "1:456889785566:web:f9dbfd9bc9f1f0e657764f"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase

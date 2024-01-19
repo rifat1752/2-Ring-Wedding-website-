@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import Navbar from "../Shared/Navbar";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import { useContext } from "react";
@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 
 const Registration = () => {
     const{CreateUser} = useContext(serviceContext);
+    const navigate = useNavigate();
 
     const handleRegister =e=>{
         e.preventDefault();
@@ -16,7 +17,7 @@ const Registration = () => {
         const photoURL = form.get('photo');
         const email = form.get('email');
         const password =form.get('password');
-        console.log(name,photoURL,email,password);
+       
 
         // validation
         if(password.length<6){
@@ -25,17 +26,21 @@ const Registration = () => {
                 title: "Oops...",
                 text: "password should be atlest 6 characters",
               });
-              return;
+     
         }
         //create user
         CreateUser(email,password)
         .then(result=>{
+            navigate("/")
             Swal.fire({
             title: "Great!",
             text: "Your Account has been created!",
             icon: "success"
-          });})
+          });
+        return
+        })
         .catch(error=>console.log(error.message))
+        
     }
   return (
     <div>

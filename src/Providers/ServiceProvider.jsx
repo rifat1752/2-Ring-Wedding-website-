@@ -1,12 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import auth from "../Firebase/firebase.config";
 
 
 export const serviceContext = createContext(null);
 
 const googleProvider =new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 // other context api
 const ServiceProvider = ({children}) => {
@@ -15,10 +16,19 @@ const ServiceProvider = ({children}) => {
   const [blogs, setBlogs] = useState([]);
   const [likedStatus, setLikedStatus] = useState({});
   const [user, setUser] =useState({});
+  const [loading,setLoading] = useState(true);
 
+
+  const githubLogin =()=>{
+    setLoading(true);
+    return signInWithPopup(auth,githubProvider); 
+    
+  }
   //google login
   const googleLogin =()=>{
+    setLoading(true);
     return signInWithPopup(auth,googleProvider); 
+    
   }
 //email sign up
 const CreateUser=(email,password)=>{
@@ -26,6 +36,7 @@ const CreateUser=(email,password)=>{
 }
 // sign in
 const LogInUser =(email,password)=>{
+  setLoading(true)
  return signInWithEmailAndPassword(auth,email,password)
 }
 const LogOut = ()=>{
@@ -38,10 +49,11 @@ useEffect(()=>{
 
 const unsubscribe =  onAuthStateChanged(auth,(user)=>{
   setUser(user);
+  setLoading(false);
  });
  return ()=>{unsubscribe()};
 },[])
-console.log(user);
+
   // other code
 
 
@@ -81,7 +93,7 @@ console.log(user);
     
 
 
-    const serviceInfo ={user,LogOut,LogInUser,CreateUser, services, dataLength,setDataLength,blogs,initialLikedStatus,likedStatus,toggleLikedStatus, DataUpdate,googleLogin,CreateUser}
+    const serviceInfo ={githubLogin,loading,user,LogOut,LogInUser,CreateUser, services, dataLength,setDataLength,blogs,initialLikedStatus,likedStatus,toggleLikedStatus, DataUpdate,googleLogin,CreateUser}
     return (
         <serviceContext.Provider value={serviceInfo}>
             {children}

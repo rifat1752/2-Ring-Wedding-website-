@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Shared/Navbar";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import { useContext } from "react";
@@ -6,14 +6,17 @@ import { serviceContext } from "../Providers/ServiceProvider";
 import Swal from 'sweetalert2';
 
 const LogIn = () => {
-    const {LogInUser} = useContext(serviceContext)
+    const {LogInUser} = useContext(serviceContext);
+    const location= useLocation();
+    const navigate = useNavigate()
+
 
     const handleLogIn =e=>{
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         const email = form.get('email');
         const password =form.get('password');
-        // console.log(email,password);
+    
 
         // validation
         if(password.length<6){
@@ -22,11 +25,12 @@ const LogIn = () => {
                 title: "Oops...",
                 text: "password should be atlest 6 characters",
               });
-              return;
+              
         }
         //create user
         LogInUser(email,password)
         .then(result=>{
+            navigate(location?.state?location.state:'/')
             Swal.fire({
                 title: "Great!",
                 text: "Log in Successful!",
