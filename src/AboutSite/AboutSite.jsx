@@ -1,21 +1,26 @@
+import About from "../Home/About/About";
 import Navbar from "../Shared/Navbar";
 import logo from "../assets/ring.png"
 
 const AboutSite = () => {
     return (
-        <div>
-            <div className="bg-slate-600"><Navbar></Navbar></div>
-            <div className="flex flex-col items-center ">
-            <img className="w-16 h-16 my-5" src={logo} alt="" />
-                    <h1 className="text-5xl font-bold my-5">About Our Company</h1>
-            </div>
+        <div className="">
+            <div  className="w-full "><Navbar></Navbar></div>
+            <About></About>
            <div className="flex flex-col items-center">
-           <div className="mx-10 mt-16 max-w-screen-xl  lg:mx-20 text-justify">
-           <div>
-                <h1 className="text-2xl font-semibold my-2">
-                Welcome to <span className="text-pink-500">2</span><span className="text-yellow-500">RING</span>- Crafting Unforgettable Love Stories
+           <div className="mx-5 mt-16 max-w-screen-xl  text-justify">
+            <div className=" flex bg-slate-50 rounded-xl flex-row gap-5 min-h-screen ">
+                <div className="w-5/12 flex justify-center items-center ">
+                   <figure className="w-80 h-96  bg-slate-300  relative ">
+                      <img className="bg-slate-50 p-2 object-cover w-80 absolute -top-4 -left-4   z-50 h-96" src='https://i.ibb.co.com/Wy4G7Pg/Incorporating-Cultural-Traditions-into-Your-Wedding.jpg' alt="" />       
+                    </figure>
+                   </div>
+                   <div  className="flex flex-col justify-center items-center px-10  w-6/12 ">
+                   <h1 className="text-4xl  text-center text-[#FF007F] font-bold mb-10">
+                     Welcome to 2Ring Crafting Unforgettable Love Stories
                 </h1>
-                <p className="text-lg font-semibold text-slate-500 mb-5">At <span className="text-pink-500">2</span><span className="text-yellow-500">RING</span>, we believe that every couple's journey towards matrimony is a unique narrative, deserving of an extraordinary celebration. With a passion for creating magical moments and a commitment to unparalleled service, we stand as your dedicated partner in turning your wedding dreams into a breathtaking reality.</p>
+                 <p className="text-lg   font-semibold text-slate-500 mb-5">At <span className="text-pink-500">2</span><span className="text-yellow-500">Ring</span>, we believe that every couple's journey towards matrimony is a unique narrative, deserving of an extraordinary celebration. With a passion for creating magical moments and a commitment to unparalleled service, we stand as your dedicated partner in turning your wedding dreams into a breathtaking reality.</p>
+                </div>
             </div>
             <div>
                 <h1 className="text-2xl font-semibold my-2">

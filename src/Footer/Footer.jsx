@@ -4,7 +4,7 @@ import { AiFillInstagram } from "react-icons/ai";
 const Footer = () => {
     return (
         <div className="mt-10">
-            <footer className="footer footer-center p-10 bg-slate-800 text-primary-content">
+            <footer className="footer footer-center p-10 bg-slate-900  text-primary-content">
   <aside>
   <p className="text-3xl ml-1 text-yellow-300  font-nova font-extrabold"><span className="text-pink-500">2</span>Ring</p>
   </aside> 

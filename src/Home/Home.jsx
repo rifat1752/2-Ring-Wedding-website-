@@ -12,9 +12,9 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
-      <Services></Services>
+      <About button={true}></About>
       <Brides></Brides>
-      <About></About>
+      <Services home={true}></Services>
       <HBlogs></HBlogs>
       <GroomComment></GroomComment>
     </div>

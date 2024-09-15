@@ -10,7 +10,7 @@ const Blogs = () => {
 
     return (
         <div>
-            <div className=" md:bg-slate-600 ">
+            <div className="">
               <Navbar></Navbar>
             </div>
             <div>

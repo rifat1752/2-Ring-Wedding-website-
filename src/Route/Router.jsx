@@ -20,7 +20,6 @@ const Router = createBrowserRouter([
       children: [
         {
           path:'/',
-          loader:() => fetch('https://api.npoint.io/8776086b5d73c4ccd7e4'),
           element:<Home></Home>
         },
         {
@@ -29,7 +28,6 @@ const Router = createBrowserRouter([
         },
         {
           path:"/services",
-          loader:() => fetch('https://api.npoint.io/8776086b5d73c4ccd7e4'),
           element:<ServiceSite></ServiceSite>
         },
         {
