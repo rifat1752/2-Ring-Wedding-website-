@@ -3,10 +3,10 @@ import { AiFillInstagram } from "react-icons/ai";
 
 const Footer = () => {
     return (
-        <div className="mt-10">
-            <footer className="footer footer-center p-10 bg-slate-900  text-primary-content">
+        <div className="mt-10 ">
+            <footer className="footer footer-center p-10 bg-slate-900 rounded-t-xl  text-primary-content">
   <aside>
-  <p className="text-3xl ml-1 text-yellow-300  font-nova font-extrabold"><span className="text-pink-500">2</span>Ring</p>
+  <p className="text-3xl ml-1 text-yellow-300  font-nova font-extrabold"><span className="text-[#FF007F]">2</span>Ring</p>
   </aside> 
   <p>Copyright © 2024 - All right reserved</p>
     <div className="grid grid-flow-col gap-4">

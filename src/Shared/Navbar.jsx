@@ -9,6 +9,7 @@ const Navbar = ({home}) => {
     const {user,LogOut} = useContext(serviceContext);
     const [open, setOpen]= useState(false);
     const [image,setImage] =useState([])
+    console.log("navbar user",user)
 
     const Clicked =()=>{
         setOpen(!open);
@@ -16,12 +17,12 @@ const Navbar = ({home}) => {
 
 
     return (
-        <div className={` ${home? "text-white":"md:text-slate-800 text-white"} `}>
-            <nav className={`md:flex  ${open===true?'h-56':'h-0'}   md:bg-opacity-0 flex-col md:flex-row justify-between   md:h-16 bg-slate-900    bg-opacity-100 items-center ${open === true?'h-40':''}`}>
+        <div className={` ${home? "text-white":"md:text-slate-800 text-white"}   `}>
+            <nav className={`md:flex  ${open===true?'h-56':'h-0'}   md:bg-opacity-0 flex-col md:flex-row justify-between   md:h-16 bg-slate-900  rounded  bg-opacity-100 items-center ${open === true?'h-40':''}`}>
             <div className="flex  flex-row justify-between items-center">
                <div className="  p-4 flex items-center float-start">
-               <figure className=" w-8 h-8"> <img  src={logo} alt="" /></figure>
-                <p className="text-3xl ml-1 text-yellow-300  font-nova font-extrabold"><span className="text-[#FF007F]">2</span>Ring</p></div>
+               <figure className=" w-5 h-5 md:w-7 md:h-7 lg:w-8 lg:8 sm:w-6 sm:h-6"> <img  src={logo} alt="" /></figure>
+                <p className="md:text-2xl lg:text-3xl  ml-1 text-yellow-300  font-nova font-extrabold"><span className="text-[#FF007F]">2</span>Ring</p></div>
                <div className="float-right p-2 md:hidden " onClick={Clicked}>{open===true?<FaWindowClose className=" text-4xl text-yellow-300 cursor-pointer " />:<IoMdMenu className="text-4xl text-yellow-300 cursor-pointer " /> }
                </div>
             </div>
@@ -58,7 +59,7 @@ const Navbar = ({home}) => {
                           </div>
                     </div>
                     :
-                    <Link to='/login' className=" flex  justify-center mt-2 pb-1  text-white   hover:bg-[#FF007F] border-[#FF007F] transition-all duration-300 w-20 h-10 rounded-full"><button className="text-lg font-bold">Log In</button></Link>
+                    <Link to='/login' className={`flex  justify-center mt-2 pb-1  ${home? "text-white":"md:text-slate-800 hover:text-white text-white"}   hover:bg-[#FF007F] border-[#FF007F] transition-all duration-300 w-20 h-10 rounded-full`}><button className="text-lg font-bold">Log In</button></Link>
                    }
                    {/* <Link to='/login' className=""><button className="btn btn-info mr-6 text-white">Log In</button></Link> */}
            </div>

@@ -14,7 +14,7 @@ const ServiceSite = () => {
       <div className="  ">
         <Navbar></Navbar>
       </div>
-      <div>
+      <div className="mt-16 md:mt-0">
         <Services></Services>
       </div>
                

@@ -2,12 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 
-.italianno-regular {
-    font-family: "Italianno", cursive;
-    font-weight: 400;
-    font-style: normal;
-  }
+.courgette-regular {
+  font-family: "Courgette", cursive;
+  font-style: normal;
+}
+
 
 
   .wrapper{
@@ -26,9 +27,18 @@
     background: linear-gradient(to top, rgb(10, 10, 10), rgba(2, 2, 2, 0.822),rgba(240, 240, 240, 0));
     transition: bottom 0.5s ease;
 }
-
-
+.card-heading{
+  transition: color 0.3s ease;
+}
 
 .image:hover  .card_text {
     bottom: 0;
   }  
+  .image:hover  .card-heading{
+    color: #FF007F;
+  }
+
+  .gradient-bg {
+
+    background: radial-gradient(circle at center, #272727d2, transparent);
+  }

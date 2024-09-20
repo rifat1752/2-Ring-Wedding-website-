@@ -4,7 +4,9 @@ const Service = ({ service }) => {
     const {id,serviceName,image,price,description} = service;
   return (
 
-      <div className=" w-72  rounded-xl h-96 mb-10   bg-base-200 shadow-2xl  wrapper  ">
+      <div
+      data-aos="flip-left" 
+       className=" w-72  rounded-xl h-96 mb-10 border-2 border-slate-400   bg-base-200 shadow-2xl hover:scale-105  wrapper  ">
         <figure className="image   w-full h-full">
           <img
             src={image}
@@ -13,7 +15,7 @@ const Service = ({ service }) => {
           />
           
           <div className="card_text   pt-4  w-72  h-44 backdrop-blur-[1px] grid grid-rows-3 gap-2 justify-start text-center">
-          <h2 className="my-auto text-xl font-bold text-white ">{serviceName}</h2>
+          <h2 className="my-auto text-xl font-bold card-heading text-white ">{serviceName}</h2>
           <p className="my-auto text font-medium text-slate-200 ">{description.slice(0,50)} {description.length?"...":""}</p>
           <div className="my-auto mb-2 "> 
           <Link to={`/service/${id}`}>
