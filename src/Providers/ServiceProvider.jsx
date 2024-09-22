@@ -17,6 +17,14 @@ const ServiceProvider = ({children}) => {
   const [likedStatus, setLikedStatus] = useState({});
   const [user, setUser] =useState({});
   const [loading,setLoading] = useState(true);
+  const [themeColor, setThemeColor] = useState("dark");
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setThemeColor(savedTheme); // Sync themeColor with the stored value
+    }
+  }, []);
 
 
   const githubLogin =()=>{
@@ -93,7 +101,7 @@ const unsubscribe =  onAuthStateChanged(auth,(user)=>{
     
 
 
-    const serviceInfo ={githubLogin,loading,user,LogOut,LogInUser,CreateUser, services, dataLength,setDataLength,blogs,initialLikedStatus,likedStatus,toggleLikedStatus, DataUpdate,googleLogin,CreateUser}
+    const serviceInfo ={githubLogin,loading,user,LogOut,LogInUser,CreateUser, services, dataLength,setDataLength,blogs,initialLikedStatus,likedStatus,toggleLikedStatus, DataUpdate,googleLogin,CreateUser,themeColor,setThemeColor}
     return (
         <serviceContext.Provider value={serviceInfo}>
             {children}

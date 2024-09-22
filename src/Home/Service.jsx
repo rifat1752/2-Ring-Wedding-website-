@@ -6,12 +6,12 @@ const Service = ({ service }) => {
 
       <div
       data-aos="flip-left" 
-       className=" w-72  rounded-xl h-96 mb-10 border-2 border-slate-400   bg-base-200 shadow-2xl hover:scale-105  wrapper  ">
+       className=" w-72  rounded-xl hover:shadow-lg  h-96 mb-10 border-2 border-slate-400   bg-base-200 shadow-2xl  wrapper  ">
         <figure className="image   w-full h-full">
           <img
             src={image}
             alt=""
-            className="rounded-md service-img w-full h-full object-cover "
+            className="rounded-md service-img w-full h-full  object-cover "
           />
           
           <div className="card_text   pt-4  w-72  h-44 backdrop-blur-[1px] grid grid-rows-3 gap-2 justify-start text-center">

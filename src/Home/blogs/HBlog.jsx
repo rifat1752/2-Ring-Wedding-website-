@@ -22,9 +22,9 @@ const HBlog = ({blog}) => {
     return (
         <div 
         data-aos={window.screen.width < 720 ? "flip-left" :"zoom-in" }
-         className=" lg:w-4/6 max-w-5xl  rounded-xl hover:border hover:border-[#FF007F] transition duration-500 bg-slate-50 mx-5 shadow-xl  border border-slate-300 flex flex-col md:flex-row  my-5">
+         className=" lg:w-4/6 max-w-5xl   border-[#FF007F] transition rounded-xl duration-500 bg-slate-50 mx-5 shadow-xl  border flex flex-col md:flex-row  my-5">
       <div className="image w-full relative top-0 lg:w-1/3">
-        <img className="w-full md:w-96 rounded-t-lg md:rounded-t-sm md:rounded-l-lg object-cover md:h-full" src={poster_image} alt="" />
+        <img className="w-full md:w-96 rounded-t-xl md:rounded-r-none md:rounded-l-xl   object-cover md:h-full" src={poster_image} alt="" />
         <p className="bg-red-500 absolute top-1/3 text-slate-200 right-0 w-20 h-16 text-lg font-extrabold text-center">{post_date}</p>
       </div>
       <div className="text w-full md:w-2/3 p-10">
